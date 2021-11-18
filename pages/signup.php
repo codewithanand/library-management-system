@@ -9,7 +9,7 @@
         $pass = $_POST['pass'];
         $cpass = $_POST['cpass'];
 
-        $exists = "SELECT * FROM user_data WHERE id='$id'";
+        $exists = "SELECT * FROM user_data WHERE uid='$id'";
         $result = mysqli_query($conn, $exists);
         $numExistsRows = mysqli_num_rows($result);
 
@@ -19,7 +19,7 @@
         else{
             if($pass == $cpass){
                 $hash = password_hash($pass, PASSWORD_DEFAULT);
-                $sql = "INSERT INTO `user_data` (`id`,`email`,`fname`,`lname`,`phone`,`password`) VALUES (`$id`,`$email`,`$fname`,`$lname`,`$phone`,`$hash`)";
+                $sql = "INSERT INTO `user_data` (`uid`,`email`,`fname`,`lname`,`phone`,`password`) VALUES ('$id', '$email', '$fname', '$lname', '$phone', '$hash')";
                 $result = mysqli_query($conn, $sql);
 
                 if($result){
