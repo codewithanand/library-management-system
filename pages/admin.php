@@ -10,7 +10,7 @@
     <div class="container">
         <ul>
             <li>
-                <a href="" class="btn">Issue a Book</a>
+                <a href="./bookissue.php" class="btn">Issue a Book</a>
             </li>
             <li>
                 <a href="./signup.php" class="btn">New User</a>
@@ -19,7 +19,7 @@
                 <a href="./bookentry.php" class="btn">New Book Entry</a>
             </li>
             <li>
-                <a href="" class="btn">Update Book Entry</a>
+                <a href="./bookupdate.php" class="btn">Update Book Entry</a>
             </li>
             <li>
                 <a href="./bookdelete.php" class="btn">Delete Book Entry</a>
