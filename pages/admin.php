@@ -22,7 +22,7 @@
                 <a href="" class="btn">Update Book Entry</a>
             </li>
             <li>
-                <a href="" class="btn">Delete Book Entry</a>
+                <a href="./bookdelete.php" class="btn">Delete Book Entry</a>
             </li>
         </ul>
     </div>
