@@ -13,7 +13,7 @@
                 <a href="" class="btn">Issue a Book</a>
             </li>
             <li>
-                <a href="" class="btn">New User</a>
+                <a href="./signup.php" class="btn">New User</a>
             </li>
             <li>
                 <a href="" class="btn">New Book Entry</a>
