@@ -34,15 +34,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign in | YSM Library</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <div class="container">
-        <form action="./signin.php" method="POST">
-            <input type="text" placeholder="User ID" name="uid" id="uid">
-            <input type="password" placeholder="Password" name="pass" id="pass">
-            <button class="btn" type="submit">Sign in</button>
-            <a href="./signup.php" class="btn">Sign up</a>
-        </form>
+    <div class="navbar">
+        <div class="nav-logo">
+            <h2>YSM LIBRARY</h2>
+        </div>
+        <div class="nav-btns">
+            <!-- <a href="./logout.php" class="btn">LOG OUT</a>
+            <a href="" class="btn sec">admin</a> -->
+        </div>
+    </div>
+    <div class="main">
+        <div class="container">
+            <form class="container" action="./signin.php" method="POST">
+                <div class="row">
+                    <div class="col">
+                        <label for="userid">USER ID</label>
+                    </div>
+                    <div class="col">
+                    <input type="text" placeholder="User ID" name="uid" id="uid" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="pass">PASSWORD</label>
+                    </div>
+                    <div class="col">
+                    <input type="password" placeholder="Password" name="pass" id="pass" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="submit" class="btn">LOG IN</button>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 </html>

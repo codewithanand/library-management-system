@@ -42,19 +42,82 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up | YSM Library</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <div class="container">
-        <form action="./signup.php" method="POST">
-            <input type="text" placeholder="User ID" name="uid" id="uid">
-            <input type="text" placeholder="Email Address" name="email" id="email">
-            <input type="text" placeholder="First Name" name="fname" id="fname">
-            <input type="text" placeholder="Last Name" name="lname" id="lname">
-            <input type="tel" placeholder="Phone Number" name="phone" id="phone">
-            <input type="password" placeholder="Password" name="pass" id="pass">
-            <input type="password" placeholder="Confirm Password" name="cpass" id="cpass">
-            <button class="btn" type="submit">Sign up</button>
-        </form>
+    <div class="navbar">
+        <div class="nav-logo">
+            <h2>YSM LIBRARY</h2>
+        </div>
+        <div class="nav-btns">
+            <a href="./logout.php" class="btn">LOG OUT</a>
+            <a href="" class="btn sec">admin</a>
+        </div>
+    </div>
+    <div class="main">
+        <div class="container">
+            <form class="container" action="./signup.php" method="POST">
+                <div class="row">
+                    <div class="col">
+                        <label for="userid">USER ID</label>
+                    </div>
+                    <div class="col">
+                        <input type="text" placeholder="User ID" name="uid" id="uid" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="email">EMAIL ADDRESS</label>
+                    </div>
+                    <div class="col">
+                    <input type="text" placeholder="Email Address" name="email" id="email" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="fname">FIRST NAME</label>
+                    </div>
+                    <div class="col">
+                    <input type="text" placeholder="First Name" name="fname" id="fname" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="lname">LAST NAME</label>
+                    </div>
+                    <div class="col">
+                    <input type="text" placeholder="Last Name" name="lname" id="lname" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="phone">PHONE</label>
+                    </div>
+                    <div class="col">
+                        <input type="tel" placeholder="Phone Number" name="phone" id="phone" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="password">PASSWORD</label>
+                    </div>
+                    <div class="col">
+                    <input type="password" placeholder="Password" name="pass" id="pass" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="password">CONFIRM PASSWORD</label>
+                    </div>
+                    <div class="col">
+                    <input type="password" placeholder="Confirm Password" name="cpass" id="cpass" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="submit" class="btn">REGISTER</button>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 </html>
