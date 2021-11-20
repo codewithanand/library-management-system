@@ -36,14 +36,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Book Entry | YSM Library</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <h1>New Book Entry</h1>
-    <form action="./bookentry.php" method="post">
-        <input type="text" id="bookid" name="bookid" placeholder="Book ID">
-        <input type="text" id="bookname" name="bookname" placeholder="Book Name">
-        <input type="text" id="author" name="author" placeholder="Author">
-        <button type="submit">Submit</button>
-    </form>
+    <div class="navbar">
+        <div class="nav-logo">
+            <h2>YSM LIBRARY</h2>
+        </div>
+        <div class="nav-btns">
+            <a href="./admin.php" class="btn btn-sm">HOME</a>
+            <a href="./logout.php" class="btn btn-sm">LOG OUT</a>
+            <a href="" class="btn btn-sm sec">admin</a>
+        </div>
+    </div>
+    <div class="main">
+        <form class="container md-col w-700" action="./bookentry.php" method="post">
+            <div class="row row-cen">
+                <h1>NEW BOOK ENTRY</h1>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="lb-lg" for="bookid">BOOK ID</label>
+                </div>
+                <div class="col">
+                    <input class="lb-lg" type="text" id="bookid" name="bookid" placeholder="Book ID" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="lb-lg" for="bookname">BOOK NAME</label>
+                </div>
+                <div class="col">
+                    <input class="lb-lg" type="text" id="bookname" name="bookname" placeholder="Book Name" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="lb-lg" for="authorname">AUTHOR NAME</label>
+                </div>
+                <div class="col">
+                    <input class="lb-lg" type="text" id="author" name="author" placeholder="Author Name" required>
+                </div>
+            </div>
+            <div class="row row-cen">
+                <button type="submit" class="btn btn-sm">SUBMIT</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

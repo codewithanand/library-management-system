@@ -1,5 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(80, 110, 148); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(55, 80, 112); 
+}
+
 *{
     padding: 0;
     margin: 0;
@@ -12,16 +32,11 @@ body{
     font-family: 'Open Sans', sans-serif;
     background-image: url('./img/background.png');
     background-position: center;
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-.main{
-    width: 100%;
-    height: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 h1{
@@ -55,14 +70,23 @@ a:hover{
     color: white;
     font-size: 18px;
     font-weight: 500;
-    padding: 8px 40px;
+    padding: 8px 20px;
     border-radius: 5px;
     cursor: pointer;
     text-transform: uppercase;
-    margin-left: 10px;
-    min-width: 220px;
+    margin: 10px;
+    /* min-width: 220px; */
     text-align: center;
 }
+
+.btn-sm{
+    width: 150px;
+}
+
+.btn-lg{
+    width: 350px;
+}
+
 .btn:hover{
     background: rgb(55, 80, 112);
 }
@@ -85,34 +109,65 @@ a:hover{
     flex: 1;
 }
 
-.container{
-    width: 700px;
+.main{
+    margin: auto;
+    width: 90%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
-    gap: 16px;  
+    align-items: center;
+}
+.container{
+    display: flex;
+    padding: 10px;
+    gap: 10px;
 }
 
-.container .row{
-    /* margin: 10px 0; */
+.w-500{
+    width: 500px;
+}
+
+.w-700{
+    width: 700px
+}
+
+.bg-wb{
+    background: white;
+    border: 5px solid rgb(8, 161, 217);
+}
+
+.w-sm{
+    flex: 3 / 1;
+}
+
+.md-row{
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.md-col{
+    flex-direction: column;
+}
+
+.row{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
-.container .row-cen{
-    display: flex;
-    flex-direction: row;
+.row-cen{
     justify-content: center;
-    align-items: center;
-    width: 100%;
+}
+
+.col{
+    display: inline-block;
 }
 
 label,
 input{
-    font-size: 24px;
     font-weight: 400;
 }
 
@@ -120,6 +175,23 @@ input{
     border: 5px solid rgb(80, 110, 148);
     padding: 8px;
     border-radius: 10px;
+    min-width: 300px;
+}
+
+input:disabled{
+    border: 5px solid rgb(105, 105, 105);
+}
+
+:not(input[type="chekbox"]){
+    min-width: fit-content;
+}
+
+.lb-sm{
+    font-size: 18px;
+}
+
+.lb-lg{
+    font-size: 24px;
 }
 
 

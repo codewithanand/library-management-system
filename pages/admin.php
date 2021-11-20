@@ -13,33 +13,31 @@
             <h2>YSM LIBRARY</h2>
         </div>
         <div class="nav-btns">
-            <a href="./logout.php" class="btn">LOG OUT</a>
-            <a href="" class="btn sec">admin</a>
+            <a href="./logout.php" class="btn btn-sm">LOG OUT</a>
+            <a href="" class="btn btn-sm sec">admin</a>
         </div>
     </div>
     <div class="main">
-        <div class="container">
-            <form class="container" action="./login.php" method="post">
-                <div class="row-cen">
-                    <a href="./signup.php" class="btn">New User</a>
-                </div>
-                <div class="row-cen">
-                    <a href="./bookissue.php" class="btn">Issue a Book</a>
-                </div>
-                <div class="row-cen">
-                    <a href="./bookreturn.php" class="btn">Return a Book</a>
-                </div>
-                <div class="row-cen">
-                    <a href="./bookentry.php" class="btn">New Book Entry</a>
-                </div>
-                <div class="row-cen">
-                    <a href="./bookupdate.php" class="btn">Update Book Entry</a>
-                </div>
-                <div class="row-cen">
-                    <a href="./bookdelete.php" class="btn">Delete Book Entry</a>
-                </div>
-            </form>
-        </div>
+        <form class="container md-col" action="./login.php" method="post">
+            <div class="row-cen">
+                <a href="./signup.php" class="btn btn-lg">New User</a>
+            </div>
+            <div class="row-cen">
+                <a href="./bookissue.php" class="btn btn-lg">Issue a Book</a>
+            </div>
+            <div class="row-cen">
+                <a href="./bookreturn.php" class="btn btn-lg">Return a Book</a>
+            </div>
+            <div class="row-cen">
+                <a href="./bookentry.php" class="btn btn-lg">New Book Entry</a>
+            </div>
+            <div class="row-cen">
+                <a href="./bookupdate.php" class="btn btn-lg">Update Book Entry</a>
+            </div>
+            <div class="row-cen">
+                <a href="./bookdelete.php" class="btn btn-lg">Delete Book Entry</a>
+            </div>
+        </form>
     </div>
 </body>
 </html>

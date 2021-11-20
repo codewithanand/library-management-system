@@ -9,15 +9,15 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <div class="main">
-      <div class="container">
-          <div class="row-cen">
-              <h1>YSM LIBRARY</h1>
-          </div>
-          <div class="row-cen">
-              <a href="./pages/signin.php" class="btn">CONTINUE</a>
-          </div>
-      </div>
-  </div>
+<div class="main">
+        <div class="container md-col">
+            <div class="row">
+                <h1>YSM LIBRARY</h1>
+            </div>
+            <div class="row row-cen">
+                <a href="./pages/signin.php" class="btn">CONTINUE</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

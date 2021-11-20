@@ -47,29 +47,27 @@
         </div>
     </div>
     <div class="main">
-        <div class="container">
-            <form class="container" action="./signin.php" method="POST">
-                <div class="row">
-                    <div class="col">
-                        <label for="userid">USER ID</label>
-                    </div>
-                    <div class="col">
-                    <input type="text" placeholder="User ID" name="uid" id="uid" required>
-                    </div>
+        <form class="container md-col w-500" action="./signin.php" method="POST">
+            <div class="row">
+                <div class="col">
+                    <label class="lb-lg"  for="userid">USER ID</label>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <label for="pass">PASSWORD</label>
-                    </div>
-                    <div class="col">
-                    <input type="password" placeholder="Password" name="pass" id="pass" required>
-                    </div>
+                <div class="col">
+                <input class="lb-lg"  type="text" placeholder="User ID" name="uid" id="uid" required>
                 </div>
-                <div class="row">
-                    <button type="submit" class="btn">LOG IN</button>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="lb-lg"  for="pass">PASSWORD</label>
                 </div>
-            </form>
-        </div>
+                <div class="col">
+                <input class="lb-lg"  type="password" placeholder="Password" name="pass" id="pass" required>
+                </div>
+            </div>
+            <div class="row row-cen">
+                <button type="submit" class="btn btn-sm">LOG IN</button>
+            </div>
+        </form>
     </div>
 </body>
 </html>
