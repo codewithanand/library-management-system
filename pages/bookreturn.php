@@ -26,36 +26,33 @@
 
             $sql = "SELECT * FROM student_data WHERE student_id = '$studentid'";
             $result = mysqli_query($conn, $sql);
-            $row = mysqli_fetch_assoc($result);
 
+            $row = mysqli_fetch_assoc($result);
             $studentname = $row['student_name'];
 
-            if($result){
-                $sql = "SELECT * FROM student_book WHERE student_id = '$studentid'";
+            $numRows = mysqli_num_rows($result);
+
+            if($numRows == 1){
+                $sql = "SELECT * FROM student_book WHERE (student_id = '$studentid' AND book_issued_1 = '$bookid') OR (student_id = '$studentid' AND book_issued_2 = '$bookid') OR (student_id = '$studentid' AND book_issued_3 = '$bookid')";
                 $result = mysqli_query($conn, $sql);
 
-                if($result){
+                $numRows = mysqli_num_rows($result);
+
+                if($numRows == 1){
                     $row = mysqli_fetch_assoc($result);
-                    if(($row['book_issued_1'] != "" OR $row['book_issued_1'] != NULL) AND ($row['book_issued_2'] != "" OR $row['book_issued_2'] != NULL) AND ($row['book_issued_3'] != "" OR $row['book_issued_3'] != NULL)){
-                        echo 'Error! Book cannot be issued. First return any issued book.';
-                        $book_issued_1 = $row['book_issued_1'];
-                        $book_issued_2 = $row['book_issued_2'];
-                        $book_issued_3 = $row['book_issued_3'];
-                    }
-                    else{
-                        $book_issued_1 = $row['book_issued_1'];
-                        $book_issued_2 = $row['book_issued_2'];
-                        $book_issued_3 = $row['book_issued_3'];
-                    }
+                    $book_issued_1 = $row['book_issued_1'];
+                    $book_issued_2 = $row['book_issued_2'];
+                    $book_issued_3 = $row['book_issued_3'];
+                    
                 }
                 else{
-                    echo 'Error! Student not found.';
                     $studentid = 'Not Found';
                     $studentname = 'Not Found';
+                    echo 'Error! This student id is not the book issuer.';
                 }
             }
             else{
-                echo 'Error! No record found from the student id';
+                echo 'Error! Wrong student id';
                 $studentid = 'Not Found';
                 $studentname = 'Not Found';
             }
@@ -73,7 +70,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Issue | YSM Library</title>
+    <title>Book Return | YSM Library</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -91,9 +88,9 @@
         <div class="container md-row">
 
             <!-- =========================== STUDENT BOOK SEARCH FORM ======================== -->
-            <form class="container md-col" action="./bookissue.php" method="post" name="studentBookSearch">
+            <form class="container md-col" action="./bookreturn.php" method="post" name="studentBookSearch">
                 <div class="row">
-                    <h1>BOOK ISSUE</h1>
+                    <h1>BOOK RETURN</h1>
                 </div>
                 <div class="row">
                     <div class="col">
@@ -123,7 +120,7 @@
 
             <!-- =========================== CONFIRM BOOK ISSUE FORM ======================== -->
             <?php 
-                echo '<form class="container md-col w-sm" action="../partials/confirmBookIssue.php?bookid='.$bookid.'&studentid='.$studentid.'" method="post">';
+                echo '<form class="container md-col w-sm" action="../partials/confirmBookReturn.php?bookid='.$bookid.'&studentid='.$studentid.'" method="post">';
             ?>
                 <div class="container md-col bg-wb">
                     <div class="row">
