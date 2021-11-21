@@ -42,11 +42,11 @@
         <div class="nav-btns">
             <a href="./admin.php" class="btn btn-sm">HOME</a>
             <a href="./logout.php" class="btn btn-sm">LOG OUT</a>
-            <a href="" class="btn btn-sm sec">admin</a>
+            <a href="" class="btn btn-sm sec"><?php session_start(); echo $_SESSION['username'] ?></a>
         </div>
     </div>
     <div class="main">
-        <div class="container md-row">
+        <div class="container md-row" id="resContent">
 
             <!-- =========================== BOOK SEARCH FORM ======================== -->
             <form class="container md-col" action="./bookdelete.php" method="post" name="bookSearch">

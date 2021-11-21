@@ -14,7 +14,7 @@
         </div>
         <div class="nav-btns">
             <a href="./logout.php" class="btn btn-sm">LOG OUT</a>
-            <a href="" class="btn btn-sm sec">admin</a>
+            <a href="" class="btn btn-sm sec"><?php session_start(); echo $_SESSION['username'] ?></a>
         </div>
     </div>
     <div class="main">

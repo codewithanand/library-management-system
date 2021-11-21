@@ -1,14 +1,15 @@
 <?php
     include "../partials/dbConnect.php";
 
+    
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $userID = $_POST['uid'];
         $pass = $_POST['pass'];
-    
+        
         $sql = "SELECT * FROM user_data WHERE uid = '$userID'";
         $result = mysqli_query($conn, $sql);
         $numOfRows = mysqli_num_rows($result);
-    
+        
         if($numOfRows == 1){
             while($row = mysqli_fetch_assoc($result)){
                 if(password_verify($pass, $row['password'])){
