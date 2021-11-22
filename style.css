@@ -99,10 +99,13 @@ a:hover{
 
 .sec{
     background: rgb(249, 106, 27);
+    cursor: default;
+    user-select: none;
 }
 
 .sec:hover{
-    background: rgb(219, 92, 24);
+    background: rgb(249, 106, 27);
+    /* background: rgb(219, 92, 24); */
 }
 
 .btn-disabled{

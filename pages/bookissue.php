@@ -12,9 +12,15 @@
 
     include '../partials/dbConnect.php';
 
+    
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
         $bookid = $_POST['bookid'];
         $studentid = $_POST['studentid'];
+
+        if($bookid == '' OR $bookid == NULL){
+            header('location: ../pages/bookissue.php');
+        }
 
         $sql = "SELECT * FROM book_details WHERE book_id = '$bookid'";
         $result = mysqli_query($conn, $sql);
@@ -87,6 +93,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Issue | YSM Library</title>
     <link rel="stylesheet" href="../style.css">
+    <script src="../main.js" defer></script>
 </head>
 <body>
     <div class="navbar">
@@ -103,7 +110,7 @@
         <div class="container md-row">
 
             <!-- =========================== STUDENT BOOK SEARCH FORM ======================== -->
-            <form class="container md-col" action="./bookissue.php" method="post" name="studentBookSearch">
+            <form class="container md-col" action="./bookissue.php" method="post" name="studentBookSearch" id="formSubmittable">
                 <div class="row">
                     <h1>BOOK ISSUE</h1>
                 </div>
@@ -135,7 +142,7 @@
 
             <!-- =========================== CONFIRM BOOK ISSUE FORM ======================== -->
             <?php 
-                echo '<form class="container md-col w-sm" action="../partials/confirmBookIssue.php?bookid='.$bookid.'&studentid='.$studentid.'&timestamp='.$time_stamp.'" method="post">';
+                echo '<form class="container md-col w-sm" action="../partials/confirmBookIssue.php?bookid='.$bookid.'&studentid='.$studentid.'&timestamp='.$time_stamp.'" method="post" id="formSubmittable">';
             ?>
                 <div class="container md-col bg-wb">
                     <div class="row">
@@ -144,7 +151,7 @@
                         </div>
                         <div class="col">
                             <?php
-                                echo '<input class="lb-sm" type="text" name="bookid" id="bookid" value="'.$bookid.'" disabled>';
+                                echo '<input class="lb-sm" type="text" name="bookid" id="bookid" value="'.$bookid.'" disabled required>';
                             ?>
                         </div>
                     </div>
@@ -176,7 +183,7 @@
                         </div>
                         <div class="col">
                             <?php
-                                echo '<input class="lb-sm" type="text" name="studentid" id="studentid" value="'.$studentid.'" disabled>';
+                                echo '<input class="lb-sm" type="text" name="studentid" id="studentid" value="'.$studentid.'" disabled required>';
                             ?>
                         </div>
                     </div>

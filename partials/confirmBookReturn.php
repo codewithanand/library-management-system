@@ -6,6 +6,10 @@
         $studentid = $_GET['studentid'];
         $bookid = $_GET['bookid'];
 
+        if($bookid == '' OR $bookid == NULL){
+            header('location: ../pages/bookreturn.php');
+        }
+
         $sql = "SELECT * FROM student_book WHERE (student_id = '$studentid' AND book_issued_1 = '$bookid') OR (student_id = '$studentid' AND book_issued_2 = '$bookid') OR (student_id = '$studentid' AND book_issued_3 = '$bookid')";
         $result = mysqli_query($conn, $sql);
 

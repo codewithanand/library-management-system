@@ -2,6 +2,7 @@
     $bookid='';
     $bookname='';
     $authorname='';
+    $isBookDeletable = FALSE;
 
     include '../partials/dbConnect.php';
 
@@ -17,10 +18,13 @@
 
             $bookname = $row['book_name'];
             $authorname = $row['author_name'];
+
+            $isBookDeletable = TRUE;
         }
         else{
             echo 'Error! Wrong book id.';
             $bookid = 'Not Found';
+            $isBookDeletable = FALSE;
         }
     }
 ?>
@@ -72,7 +76,7 @@
             </form>
 
             <!-- =========================== CONFIRM BOOK UPDATE FORM ======================== -->
-            <form class="container md-col w-sm" action="../partials/confirmBookDelete.php" method="post">
+            <form class="container md-col w-sm" action="../partials/confirmBookDelete.php?bookid=<?php echo $bookid ?>" method="post">
                 <div class="container md-col bg-wb">
                     <div class="row">
                         <div class="col">
@@ -80,7 +84,7 @@
                         </div>
                         <div class="col">
                             <?php
-                                echo '<input class="lb-sm" type="text" name="bookid" id="bookid" value="'.$bookid.'">';
+                                echo '<input class="lb-sm" type="text" name="bookid" id="bookid" value="'.$bookid.'" disabled>';
                             ?>
                         </div>
                     </div>
@@ -90,7 +94,7 @@
                         </div>
                         <div class="col">
                             <?php
-                                echo '<input class="lb-sm" type="text" name="bookname" id="bookname" value="'.$bookname.'">';
+                                echo '<input class="lb-sm" type="text" name="bookname" id="bookname" value="'.$bookname.'" disabled>';
                             ?>
                         </div>
                     </div>
@@ -100,7 +104,7 @@
                         </div>
                         <div class="col">
                             <?php
-                                echo '<input class="lb-sm" type="text" name="authorname" id="authorname" value="'.$authorname.'">';
+                                echo '<input class="lb-sm" type="text" name="authorname" id="authorname" value="'.$authorname.'" disabled>';
                             ?>
                         </div>
                     </div>
@@ -109,7 +113,14 @@
                 <div class="container md-col">
                     <div class="row row-cen">
                         <div class="col">
-                            <button class="btn btn-sm" name="confBookIssue" type="submit">CONFIRM</button>
+                            <!-- <button class="btn btn-sm" name="confBookIssue" type="submit">CONFIRM</button> -->
+                            <?php 
+                                if($isBookDeletable){
+                                    echo '<button class="btn btn-sm" name="confBookIssue" type="submit">CONFIRM</button>'; 
+                                }else{
+                                    echo '<button class="btn btn-sm btn-disabled" name="confBookIssue" type="submit">CONFIRM</button>';
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>

@@ -8,6 +8,8 @@
         $bookname = $_POST['bookname'];
         $bookauthor = $_POST['author'];
 
+        
+
         $sql = "SELECT * FROM book_details WHERE book_id = '$bookid'";
         $result = mysqli_query($conn, $sql);
         $numRows = mysqli_num_rows($result);

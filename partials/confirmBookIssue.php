@@ -7,6 +7,10 @@
         $bookid = $_GET['bookid'];
         $time_stamp = $_GET['timestamp'];
 
+        if($bookid == '' OR $bookid == NULL){
+            header('location: ../pages/bookissue.php');
+        }
+
         $sql = "SELECT * FROM student_book WHERE student_id = '$studentid'";
         $result = mysqli_query($conn, $sql);
 

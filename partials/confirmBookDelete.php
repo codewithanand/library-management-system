@@ -3,9 +3,7 @@
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-        $bookid = $_POST['bookid'];
-        $bookname = $_POST['bookname'];
-        $authorname = $_POST['authorname'];
+        $bookid = $_GET['bookid'];
 
         $sql = "SELECT * FROM book_details WHERE book_id = '$bookid'";
         $result = mysqli_query($conn, $sql);

@@ -2,6 +2,7 @@
     $bookid='';
     $bookname='';
     $authorname='';
+    $isBookUpdatable = FALSE;
 
     include '../partials/dbConnect.php';
 
@@ -17,10 +18,13 @@
 
             $bookname = $row['book_name'];
             $authorname = $row['author_name'];
+
+            $isBookUpdatable = TRUE;
         }
         else{
             echo 'Error! Wrong book id.';
             $bookid = 'Not Found';
+            $isBookUpdatable = FALSE;
         }
     }
 ?>
@@ -108,7 +112,14 @@
                 <div class="container md-col">
                     <div class="row row-cen">
                         <div class="col">
-                            <button class="btn btn-sm" name="confBookIssue" type="submit">CONFIRM</button>
+                            <!-- <button class="btn btn-sm" name="confBookIssue" type="submit">CONFIRM</button> -->
+                            <?php 
+                                if($isBookUpdatable){
+                                    echo '<button class="btn btn-sm" name="confBookIssue" type="submit">CONFIRM</button>'; 
+                                }else{
+                                    echo '<button class="btn btn-sm btn-disabled" name="confBookIssue" type="submit">CONFIRM</button>';
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>
