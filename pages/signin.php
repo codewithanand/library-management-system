@@ -43,6 +43,7 @@
             <h2>YSM LIBRARY</h2>
         </div>
         <div class="nav-btns">
+            <a href="../index.php" class="btn btn-sm">HOME</a>
             <!-- <a href="./logout.php" class="btn">LOG OUT</a>
             <a href="" class="btn sec">admin</a> -->
         </div>

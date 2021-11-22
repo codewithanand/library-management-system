@@ -7,6 +7,7 @@
     $book_issued_1='';
     $book_issued_2='';
     $book_issued_3='';
+    $isIssueable = FALSE;
 
     include '../partials/dbConnect.php';
 
@@ -41,29 +42,37 @@
                         $book_issued_1 = $row['book_issued_1'];
                         $book_issued_2 = $row['book_issued_2'];
                         $book_issued_3 = $row['book_issued_3'];
+                        $isIssueable = FALSE;
                     }
                     else{
                         $book_issued_1 = $row['book_issued_1'];
                         $book_issued_2 = $row['book_issued_2'];
                         $book_issued_3 = $row['book_issued_3'];
+                        $isIssueable = TRUE;
                     }
                 }
                 else{
                     echo 'Error! Student not found.';
                     $studentid = 'Not Found';
                     $studentname = 'Not Found';
+                    $isIssueable = FALSE;
+
                 }
             }
             else{
                 echo 'Error! No record found from the student id';
                 $studentid = 'Not Found';
                 $studentname = 'Not Found';
+                $isIssueable = FALSE;
+
             }
         }
         else{
             echo 'Error! Wrong book id.';
             $bookid = 'Not Found';
             $studentid = '';
+            $isIssueable = FALSE;
+
         }
     }
 ?>
@@ -212,7 +221,15 @@
                 <div class="container md-col">
                     <div class="row row-cen">
                         <div class="col">
-                            <button class="btn btn-sm" name="confBookIssue" type="submit">CONFIRM</button>
+                            <!-- <button class="btn btn-sm" name="confBookIssue" type="submit">CONFIRM</button> -->
+                            <?php 
+                                if($isIssueable){
+                                    echo '<button class="btn btn-sm" name="confBookIssue" type="submit">CONFIRM</button>'; 
+                                }else{
+                                    echo '<button class="btn btn-sm" name="confBookIssue" type="submit" disabled>CONFIRM</button>';
+                                }
+                            ?>
+                            
                         </div>
                     </div>
                 </div>
