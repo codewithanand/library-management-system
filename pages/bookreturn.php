@@ -4,6 +4,7 @@
     $authorname='';
     $studentid='';
     $studentname='';
+    $isReturnable = FALSE;
     $book_issued_1='';
     $book_issued_2='';
     $book_issued_3='';
@@ -43,24 +44,27 @@
                     $book_issued_1 = $row['book_issued_1'];
                     $book_issued_2 = $row['book_issued_2'];
                     $book_issued_3 = $row['book_issued_3'];
-                    
+                    $isReturnable = TRUE;
                 }
                 else{
                     $studentid = 'Not Found';
                     $studentname = 'Not Found';
                     echo 'Error! This student id is not the book issuer.';
+                    $isReturnable = FALSE;
                 }
             }
             else{
                 echo 'Error! Wrong student id';
                 $studentid = 'Not Found';
                 $studentname = 'Not Found';
+                $isReturnable = FALSE;
             }
         }
         else{
             echo 'Error! Wrong book id.';
             $bookid = 'Not Found';
             $studentid = '';
+            $isReturnable = FALSE;
         }
     }
 ?>
@@ -209,7 +213,14 @@
                 <div class="container md-col">
                     <div class="row row-cen">
                         <div class="col">
-                            <button class="btn btn-sm" name="confBookIssue" type="submit">CONFIRM</button>
+                            <!-- <button class="btn btn-sm" name="confBookIssue" type="submit">CONFIRM</button> -->
+                            <?php 
+                                if($isReturnable){
+                                    echo '<button class="btn btn-sm" name="confBookIssue" type="submit">CONFIRM</button>'; 
+                                }else{
+                                    echo '<button class="btn btn-sm btn-disabled" name="confBookIssue" type="submit">CONFIRM</button>';
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>

@@ -18,16 +18,16 @@
             if($row['book_issued_1'] == $bookid){
                 $sql = "UPDATE student_book SET book_issued_1 = '' WHERE student_id = '$studentid'";
                 mysqli_query($conn, $sql);
-                header('location: ../pages/bookreturn.php');
             }else if($row['book_issued_2'] == $bookid){
                 $sql = "UPDATE student_book SET book_issued_2 = '' WHERE student_id = '$studentid'";
                 mysqli_query($conn, $sql);
-                header('location: ../pages/bookreturn.php');
             }else if($row['book_issued_3'] == $bookid){
                 $sql = "UPDATE student_book SET book_issued_3 = '' WHERE student_id = '$studentid'";
                 mysqli_query($conn, $sql);
-                header('location: ../pages/bookreturn.php');
             }
+            $sql = "UPDATE book_details SET issued_by='', issued_date='' WHERE book_id='$bookid'";
+            mysqli_query($conn, $sql);
+            header('location: ../pages/bookreturn.php');
         }
 
         else{

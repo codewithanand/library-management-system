@@ -7,6 +7,7 @@
     $book_issued_1='';
     $book_issued_2='';
     $book_issued_3='';
+    $time_stamp='';
     $isIssueable = FALSE;
 
     include '../partials/dbConnect.php';
@@ -49,6 +50,8 @@
                         $book_issued_2 = $row['book_issued_2'];
                         $book_issued_3 = $row['book_issued_3'];
                         $isIssueable = TRUE;
+                        $time_stamp = time();
+                        $time_stamp = date("Y-m-d", $time_stamp);
                     }
                 }
                 else{
@@ -132,7 +135,7 @@
 
             <!-- =========================== CONFIRM BOOK ISSUE FORM ======================== -->
             <?php 
-                echo '<form class="container md-col w-sm" action="../partials/confirmBookIssue.php?bookid='.$bookid.'&studentid='.$studentid.'" method="post">';
+                echo '<form class="container md-col w-sm" action="../partials/confirmBookIssue.php?bookid='.$bookid.'&studentid='.$studentid.'&timestamp='.$time_stamp.'" method="post">';
             ?>
                 <div class="container md-col bg-wb">
                     <div class="row">
@@ -226,10 +229,9 @@
                                 if($isIssueable){
                                     echo '<button class="btn btn-sm" name="confBookIssue" type="submit">CONFIRM</button>'; 
                                 }else{
-                                    echo '<button class="btn btn-sm" name="confBookIssue" type="submit" disabled>CONFIRM</button>';
+                                    echo '<button class="btn btn-sm btn-disabled" name="confBookIssue" type="submit">CONFIRM</button>';
                                 }
                             ?>
-                            
                         </div>
                     </div>
                 </div>
